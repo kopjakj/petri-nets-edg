@@ -1,0 +1,8 @@
+fork-join naive-preset trace (48 steps
+fork-join naive-eager trace (14 steps
+buffer-2 naive-preset trace (20 steps
+buffer-2 naive-eager trace (4 steps
+choice-merge naive-preset trace (16 steps
+choice-merge naive-eager trace (16 steps
+kitting naive-preset trace (16 steps
+kitting naive-eager trace (9 steps
