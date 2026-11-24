@@ -26,6 +26,7 @@ token game legal for every ordinary net.
 | [`samples/common/`](samples/common/README.md) | The EDG gate library (`edg.c`, `edg.h`), the FreeRTOS configuration and the host-test harness |
 | [`samples/01-kitting-cell/`](samples/01-kitting-cell/README.md) | Sample 01: kitting cell — rotating dispatch, timed activities, pairwise join |
 | [`samples/02-batch-mixer/`](samples/02-batch-mixer/README.md) | Sample 02: batch mixer — sequential control with fork/join |
+| [`samples/03-grouped-offers/`](samples/03-grouped-offers/README.md) | Host example of the optional choice gate for transitions with multiple shared inputs |
 | [`samples/BUILDING.md`](samples/BUILDING.md) | Toolchain, Pico SDK, Wokwi and hardware build steps |
 
 ## Quick start — host tests (no hardware)
@@ -39,6 +40,8 @@ python3 make_tables.py  # regenerates the manuscript tables from results/
 
 `test/results/` holds the output files every number in the manuscript comes
 from; `make_tables.py` prints the same rows and totals from them.
+
+Run the grouped-offer example with `make -C samples/03-grouped-offers run check`.
 
 ## The two Pico samples
 

@@ -20,6 +20,7 @@ POSIX_INCLUDES := -Iposix $(CORE_INCLUDES) -I$(KERNEL)/include \
 all: check
 
 check: pn_unit pn_explore
+	$(MAKE) -C ../../samples/03-grouped-offers check
 	./pn_unit
 	./pn_explore fork-join credit
 	./pn_explore kitting 'credit*'
@@ -39,4 +40,5 @@ pn_freertos: Makefile pn_freertos.c nets.h $(CORE_SOURCES) $(CORE_HEADERS) posix
 		pn_freertos.c pn_posix_petri.o pn_posix_gate.o $(POSIX_SOURCES) $(LDFLAGS) $(LDLIBS) -o $@
 
 clean:
+	$(MAKE) -C ../../samples/03-grouped-offers clean
 	rm -f pn_unit pn_explore pn_freertos pn_posix_petri.o pn_posix_gate.o
