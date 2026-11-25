@@ -81,3 +81,12 @@ message exactly once in FIFO order per receiver and provide enough storage for
 outbound events. A failed handler is a terminal error. Counters must stay
 representable throughout execution. The checks exercise a Linux host transport. Hardware timing and general
 starvation guarantees remain outside their scope.
+
+## Reproducing the manuscript checks
+
+Run `make run check` for the C samples, `python3 check_handshake.py` for the
+four finite sink-transition models and `python3 check_lost_request.py` for the
+discarded-request mutation. The recorded outputs are `host_checks.txt`,
+`handshake_results.txt` and `lost_request_result.txt`. The scheduled C checker
+accounts for outstanding requests after each event. Its waiting count measures
+other grants between request and grant for serviced requests only.

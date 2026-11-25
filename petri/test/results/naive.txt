@@ -1,0 +1,24 @@
+fork-join       naive-preset  states=1000001  steps=4839266   firings=138933   unsound=61699  anomalies=209139 quiescent=0    stalls=0    markings=5/5 edges=6/6 maxq=6 releases=0 requests=0
+    !! state limit (1000000) reached: exploration INCOMPLETE
+    shortest illegal firing: trace (48 steps
+fork-join       naive-eager   states=1000001  steps=4974061   firings=148491   unsound=29624  anomalies=83994 quiescent=0    stalls=0    markings=5/5 edges=6/6 maxq=4 releases=0 requests=0
+    !! state limit (1000000) reached: exploration INCOMPLETE
+    shortest illegal firing: trace (14 steps
+buffer-2        naive-preset  states=1000002  steps=5339392   firings=173016   unsound=34909  anomalies=44870 quiescent=0    stalls=0    markings=10/12 edges=16/20 maxq=5 releases=0 requests=0
+    !! state limit (1000000) reached: exploration INCOMPLETE
+    shortest illegal firing: trace (20 steps
+buffer-2        naive-eager   states=1000002  steps=4639556   firings=128980   unsound=25214  anomalies=202244 quiescent=0    stalls=0    markings=5/12 edges=7/20 maxq=4 releases=0 requests=0
+    !! state limit (1000000) reached: exploration INCOMPLETE
+    shortest illegal firing: trace (4 steps
+choice-merge    naive-preset  states=1000001  steps=4713396   firings=488456   unsound=274990 anomalies=68314 quiescent=1    stalls=1    markings=10/10 edges=20/20 maxq=6 releases=0 requests=0
+    !! state limit (1000000) reached: exploration INCOMPLETE
+    shortest illegal firing: trace (16 steps
+choice-merge    naive-eager   states=1000002  steps=4660349   firings=310873   unsound=41261  anomalies=63393 quiescent=0    stalls=0    markings=10/10 edges=20/20 maxq=4 releases=0 requests=0
+    !! state limit (1000000) reached: exploration INCOMPLETE
+    shortest illegal firing: trace (16 steps
+kitting         naive-preset  states=1000001  steps=4577194   firings=254573   unsound=114826 anomalies=134778 quiescent=0    stalls=0    markings=9/9 edges=12/12 maxq=7 releases=0 requests=0
+    !! state limit (1000000) reached: exploration INCOMPLETE
+    shortest illegal firing: trace (16 steps
+kitting         naive-eager   states=1000001  steps=4189620   firings=130949   unsound=20484  anomalies=270093 quiescent=0    stalls=0    markings=9/9 edges=11/12 maxq=5 releases=0 requests=0
+    !! state limit (1000000) reached: exploration INCOMPLETE
+    shortest illegal firing: trace (9 steps

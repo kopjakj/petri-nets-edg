@@ -1,6 +1,0 @@
-iot-gateway     credit        states=30000002 steps=243138804 firings=8388375  unsound=0      anomalies=0     quiescent=0    stalls=0    markings=31/144 edges=62/420 maxq=4
-    !! state limit (30000000) reached: exploration INCOMPLETE
-batch-mixer     credit        states=30000001 steps=284094068 firings=4163007  unsound=0      anomalies=0     quiescent=0    stalls=0    markings=14/14 edges=18/18 maxq=2
-    !! state limit (30000000) reached: exploration INCOMPLETE
-ev-site         credit        states=30000001 steps=231020070 firings=7663401  unsound=0      anomalies=0     quiescent=0    stalls=0    markings=59/225 edges=161/804 maxq=5
-    !! state limit (30000000) reached: exploration INCOMPLETE

@@ -10,6 +10,7 @@ typedef struct {
     edg_choice_msg_t queue[256];
     unsigned count, fired[EDG_CHOICE_MAX], grants;
     int reference[EDG_CHOICE_MAX];
+    unsigned request_at[EDG_CHOICE_MAX], max_wait; /* other grants before service */
     uint32_t seed;
     bool trace;
 } example_t;
@@ -25,7 +26,10 @@ static void check(bool condition, const char *message)
 static void enqueue(void *ctx, edg_choice_msg_t msg)
 {
     example_t *e = ctx;
+    if (msg.kind == EDG_CHOICE_REQUEST) e->request_at[msg.id] = e->grants;
     if (msg.kind == EDG_CHOICE_GRANT) {
+        unsigned wait = e->grants - e->request_at[msg.id];
+        if (wait > e->max_wait) e->max_wait = wait;
         edg_choice_arcs_t arcs = e->net.arcs[msg.id];
         for (unsigned p = 0; p < e->net.places; ++p)
             if (arcs.inputs & BIT(p)) check(e->reference[p] > 0, "illegal grant");
@@ -75,6 +79,18 @@ static void deliver(example_t *e)
     memmove(e->queue + index, e->queue + index + 1,
             (e->count - index) * sizeof m);
     check(edg_choice_step(&e->net, m, enqueue, e), "protocol error");
+    /* At a handler boundary each outstanding request must have precisely one
+       representation, even when its AND already sees a closed offer. */
+    for (unsigned t = 0; t < e->net.transitions; ++t) {
+        unsigned group = e->net.group_of_transition[t];
+        unsigned copies = (e->net.group[group].pending & BIT(t)) != 0;
+        for (unsigned j = 0; j < e->count; ++j) {
+            edg_choice_msg_t queued = e->queue[j];
+            if (queued.id == t && (queued.kind == EDG_CHOICE_REQUEST ||
+                                   queued.kind == EDG_CHOICE_GRANT)) ++copies;
+        }
+        check(copies == (unsigned)e->net.transition[t].requested, "lost or duplicate request");
+    }
 }
 
 static void finish(example_t *e)
@@ -105,7 +121,7 @@ int main(int argc, char **argv)
     /* A needs P,Q and B needs P,R. Q is initially empty. */
     const edg_choice_arcs_t partial[] = {{BIT(0)|BIT(1), BIT(3)}, {BIT(0)|BIT(2), BIT(4)}};
     example_t e;
-    unsigned winners = 0;
+    unsigned winners = 0, total_a = 0, total_b = 0, max_wait = 0;
     for (unsigned seed = 0; seed < (test ? 256u : 1u); ++seed) {
         if (!test) puts("P=1 Q=1; A and B each need P,Q");
         start(&e, shared, 2, (int[]){1,1,0,0}, 4, seed, !test);
@@ -124,6 +140,9 @@ int main(int argc, char **argv)
         start(&e, shared, 2, (int[]){2,2,0,0}, 4, seed, false);
         finish(&e);
         check(e.grants == 2, "remaining tokens must be offered again");
+        total_a += e.fired[0];
+        total_b += e.fired[1];
+        if (e.max_wait > max_wait) max_wait = e.max_wait;
 
         /* Two groups connected by production. A has a self-loop on P.
            Each grant of A forwards a Q token to R, which enables B. */
@@ -151,6 +170,9 @@ int main(int argc, char **argv)
     }
     if (test) {
         check(winners == 3, "both competing transitions must be reachable");
+        check(total_a > 0 && total_b > 0, "both winners must occur across two-pair runs");
+        printf("Two pairs, 256 seeds: A=%u B=%u max intervening grants before service=%u\n",
+               total_a, total_b, max_wait);
         puts("Passed 256 mailbox schedules for each of 6 nets; both P/Q winners observed.");
     }
     return EXIT_SUCCESS;

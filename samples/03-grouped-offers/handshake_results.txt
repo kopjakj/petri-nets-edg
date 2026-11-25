@@ -1,0 +1,4 @@
+A=PQ, B=PQ: 1824 states, 8 terminal states, possible first grants [0, 1]
+A=PQ, B=PQ, two tokens each: 54564 states, 16 terminal states, possible first grants [0, 1]
+A=PQ, B=PR, Q empty: 184 states, 2 terminal states, possible first grants [1]
+A=P, B=PQ, C=Q: 10632 states, 24 terminal states, possible first grants [0, 1, 2], both disjoint grants can be in flight

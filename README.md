@@ -4,10 +4,13 @@ Source code of the manuscript **“Running Petri Nets on Event-Driven Software
 Gates”** (MDPI *Eng*, submitted).
 
 Ordinary place/transition nets are executed by the unmodified Event-Driven Gates
-(EDG) library: a **place** is a level gate whose distance descriptor `d` is the
-marking, a **token** is a change message, and a **transition** is an AND gate that
-fires when `d == 0`. The only addition is a *place-offer rule* that keeps the
-token game legal for every ordinary net.
+(EDG) library: a **place** is a level gate whose descriptor `d` counts the
+deposits and withdrawals it has processed, a **token** is a change message, and
+a **transition** is an AND gate that fires when `d == 0`. Two rules keep the
+token game legal without any sender identity: a place *offers one token at a
+time to one consumer*, and a transition that cannot use the offer of its one
+shared input *releases it and requests it again* when its other inputs are
+complete.
 
 | Petri net | Event-driven gates |
 |---|---|
@@ -15,7 +18,9 @@ token game legal for every ordinary net.
 | marking `M(p)` | the distance descriptor `d` of that gate |
 | token deposited | message `(true, ·)` → `d++` |
 | token withdrawn | message `(false, chg)` → `d--` |
-| transition `t` | AND gate; `d` = input places not yet offering a token |
+| initialization | one `(false, init)` per place, then `M0(p)` deposits |
+| release / request | `(false, init)` / `(true, init)` between a place and its release input |
+| transition `t` | AND gate; `d` = offers still missing |
 | “place is marked” | the ordinary gate output `d > 0` |
 
 ## Layout
@@ -33,13 +38,13 @@ token game legal for every ordinary net.
 
 ```bash
 cd petri/test
-make                    # unit tests + a few nets + a naive counterexample (seconds)
-./run_explore.sh        # the full exploration table (~15 min, ~4 GB RAM)
-python3 make_tables.py  # regenerates the manuscript tables from results/
+make                    # unit tests + a few short interleaving searches (seconds)
+./run_explore.sh        # the full exploration campaign (~10 min, under 1 GB RAM)
+python3 check_mutants.py  # deliberate faults in the layer must be detected
 ```
 
-`test/results/` holds the output files every number in the manuscript comes
-from; `make_tables.py` prints the same rows and totals from them.
+`test/results/` holds the recorded outputs of that campaign; Supplementary File
+S1 of the manuscript contains the full package, including the table generator.
 
 Run the grouped-offer example with `make -C samples/03-grouped-offers run check`.
 
@@ -73,8 +78,7 @@ including the Wokwi setup and flashing, are in [`samples/BUILDING.md`](samples/B
 ```bash
 cd petri/test
 FREERTOS_KERNEL_PATH=../../pico/FreeRTOS-Kernel make pn_freertos
-./run_freertos.sh       # 24 runs of 1,000,000 firings (~20 min)
-./run_examples.sh       # the three application examples (~20 min, ~4 GB RAM)
+./run_freertos.sh       # every net, both rules, three seeds
 ```
 
 The emulator scripts (`test/emu/run_kitting.js`, `test/emu/run_mixer.js`) need
@@ -82,13 +86,17 @@ Node.js and `rp2040js`; see [`petri/README.md`](petri/README.md).
 
 ## What the code guarantees
 
-* **Safe for every ordinary net** — every firing is legal under every task
-  interleaving.
-* **Complete for conflict-free and free-choice nets** — the network stops only
-  in a dead marking.
-* Other nets (mutual exclusion, dining philosophers) stay safe, but a token can
-  be *parked* at a transition that cannot use it: the limit of anonymous
-  messages, analysed in the manuscript.
+* **Legal firings for every ordinary net** — every firing is legal under every
+  task interleaving (correct wiring, exactly-once FIFO delivery).
+* **No premature quiescence when each transition has at most one shared input** —
+  a quiescent closed execution then has a dead marking. This covers free choice,
+  mutual exclusion and sensor-steered choices.
+* A transition with **two shared inputs** cannot tell which place offered, so it
+  keeps every offer and can still stall (dining philosophers, `efc-pair`) unless
+  the net is restructured or the optional choice gate of
+  `samples/03-grouped-offers/` is used.
+* Round robin restricts which legal choices occur, and local place counts can
+  lag the reference marking while messages travel.
 
 Not supported: arc weights, capacities, inhibitor/read arcs, guards and source
 transitions.

@@ -1,0 +1,12 @@
+# fork-join  [marked graph, safe]  |P|=5 |T|=4
+fork-join       offer         states=63715    steps=291756    firings=13089    unsound=0      anomalies=0     quiescent=0    stalls=0    markings=5/5 edges=6/6 maxq=2 releases=0 requests=0  !!queue full
+    blocked send attempts=59884, terminal states with pending sends=0
+# fork-join  [marked graph, safe]  |P|=5 |T|=4
+fork-join       release       states=63715    steps=291756    firings=13089    unsound=0      anomalies=0     quiescent=0    stalls=0    markings=5/5 edges=6/6 maxq=2 releases=0 requests=0  !!queue full
+    blocked send attempts=59884, terminal states with pending sends=0
+# sensor-choice  [asymmetric choice, one shared input per transition, safe]  |P|=7 |T|=6
+sensor-choice   release       states=172179   steps=928746    firings=15471    unsound=0      anomalies=0     quiescent=0    stalls=0    markings=3/3 edges=3/3 maxq=2 releases=24408 requests=11664  !!queue full
+    blocked send attempts=82134, terminal states with pending sends=0
+# mutex-idle  [asymmetric choice, one shared input per transition, safe]  |P|=7 |T|=6
+mutex-idle      release       states=184275   steps=994869    firings=17496    unsound=0      anomalies=0     quiescent=0    stalls=0    markings=3/3 edges=3/3 maxq=2 releases=21708 requests=14094  !!queue full
+    blocked send attempts=98361, terminal states with pending sends=0

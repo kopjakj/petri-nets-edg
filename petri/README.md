@@ -7,38 +7,44 @@ Software Gates* (MDPI *Eng*).
 
 | Petri net | Event-driven gates |
 |---|---|
-| place `p` | level gate (one task, one queue) |
-| marking `M(p)` | the distance descriptor `d` of that gate |
-| token deposited | message `(true, ·)` → `d++` |
+| place `p` | level gate (one task, one queue); `d` counts processed deposits minus withdrawals |
+| marking `M(p)` | the reference marking, obtained by playing the firing decisions; `d` can lag while messages travel |
+| token deposited | message `(true, chg)` → `d++` |
 | token withdrawn | message `(false, chg)` → `d--` |
-| initial marking | init messages: `M0(p)` × `(true, init)`, or one `(false, init)` |
+| initial marking | one `(false, init)` per place, then `M0(p)` deposits |
+| release / request | `(false, init)` / `(true, init)` between a place and its release input |
 | "p is marked" | the ordinary gate output `d > 0` (for LEDs and gates) |
-| transition `t` | AND gate; `d` = input places not yet offering a token; fires at `d == 0` |
-| conflict | **offer discipline**: a place offers one token to one output transition at a time |
+| transition `t` | AND gate; `d` = offers still missing; fires at `d == 0` |
+| conflict | **offer discipline** plus **release and request** (version 2) |
 | external event | token source: rising change of any EDG signal |
 
 ## Files
 
 | File | Purpose |
 |---|---|
-| `edg_pn.h`, `edg_pn.c` | The layer: two pure step functions (`edg_pn_place_step`, `edg_pn_trans_step`) and three FreeRTOS task bodies (place, transition, token source). Every descriptor update goes through `edg_gate_step()`. |
-| `test/nets.h` | The eight validation nets and the three application examples as closed nets (A1 IoT gateway, A2 batch mixer, A3 EV charging site). |
-| `test/pn_unit.c` | Unit tests of the two step functions. |
-| `test/pn_explore.c` | Exhaustive exploration of **all task interleavings** against a reference token game (safety, anomalies, stalls, coverage); also explores the naive mapping, to show why it fails. |
+| `edg_pn.h`, `edg_pn.c` | The layer: the place and transition step functions, `edg_pn_auto_release()` (sets every release input from the wiring) and three FreeRTOS task bodies (place, transition, token source). Every descriptor update goes through `edg_gate_step()`. |
+| `edg_pn_choice.h`, `edg_pn_choice.c` | Optional choice gate for transitions with more than one shared input: a group collects the offers of a complete preset and grants one firing (used by [`../samples/03-grouped-offers/`](../samples/03-grouped-offers/README.md)). |
+| `test/nets.h` | Eleven validation nets and four embedded application nets (job shop, level crossing, car park, sensor choice). |
+| `test/pn_unit.c` | Unit tests of the step functions and of `edg_pn_auto_release()`. |
+| `test/pn_explore.c` | Exhaustive exploration of **all task interleavings** against a reference token game for the designs `offer`, `offer*`, `release`, `release*` and the naive mapping (safety, anomalies, stalls, coverage). |
 | `test/pn_freertos.c`, `test/posix/` | The real task layer under the FreeRTOS POSIX port, with a run-time monitor and a perturbed schedule. |
-| `test/emu/run_kitting.js`, `run_mixer.js` | Samples 13 and 14 on an emulated RP2040 (rp2040js) with scripted switch flips and a trace check. |
-| `test/run_examples.sh` | Validation of the three application examples: FreeRTOS POSIX runs and a bounded exploration. |
-| `test/make_tables.py` | Regenerates the tables and totals of the manuscript from `test/results/`. |
-| `test/results/` | The result files quoted in the manuscript. |
+| `test/check_mutants.py` | Deliberate faults in `edg_pn.c` must be reported by the explorer. |
+| `test/run_explore.sh`, `test/run_freertos.sh` | The exploration and FreeRTOS campaigns. |
+| `test/emu/run_kitting.js`, `run_mixer.js` | Samples 01 and 02 on an emulated RP2040 (rp2040js) with scripted switch flips and a trace check. |
+| `test/results/` | The recorded outputs of the campaign quoted in the manuscript. |
 
 ## Guarantees and limits
 
-* **Safe for every ordinary net**: every firing is legal, under every task interleaving.
-* **Complete for conflict-free and free-choice nets**: the network stops only in a dead marking.
-* Other nets (a transition that competes for a shared place *and* waits for
-  other inputs — mutual exclusion, dining philosophers) stay safe but a token
-  can be *parked* at a transition that cannot use it. This is the limit of
-  anonymous messages; see the manuscript, Section 6.1.
+* **Legal firings for every ordinary net**: every firing is legal, under every
+  task interleaving, assuming correct wiring and exactly-once FIFO delivery.
+* **No premature quiescence when each transition has at most one shared input**:
+  a quiescent closed execution has a dead reference marking. This covers free
+  choice, mutual exclusion and choices steered by condition places; the release
+  input is then the transition's only shared input.
+* A transition with **two shared inputs** cannot tell which place offered, so it
+  keeps every offer and can still stall (dining philosophers, `efc-pair`).
+  Resolving that needs sender identity (for example one queue per input arc), a
+  restructured net, or the optional choice gate in `edg_pn_choice.c`.
 * Not supported: arc weights, capacities, inhibitor/read arcs, guards, source
   transitions (use a token source instead).
 
@@ -66,12 +72,11 @@ the mutual-exclusion structure: safe, but they can stall.
 
 ```bash
 cd test
-make                 # unit tests, three small nets, one naive counterexample (seconds)
-./run_explore.sh     # the full table (about 15 min, about 4 GB RAM)
+make                 # unit tests and a few short searches (seconds)
+./run_explore.sh     # the full campaign: validation, embedded, naive, traces, tight, mutants
 FREERTOS_KERNEL_PATH=/path/to/FreeRTOS-Kernel make pn_freertos
-./run_freertos.sh    # 24 runs of 1,000,000 firings (about 20 min)
-./run_examples.sh    # the three application examples (about 20 min, about 4 GB RAM)
-python3 make_tables.py   # tables + totals for the manuscript
+./run_freertos.sh    # every net under the POSIX port, both rules, three seeds
+python3 check_mutants.py   # deliberate faults must be detected
 ```
 
 Emulated RP2040 (optional; needs Node.js, `npm install rp2040js`, and the
@@ -90,15 +95,13 @@ node emu/run_kitting.js /tmp/fw01.bin /path/to/bootrom.js 12
 # the same for samples/02-batch-mixer with emu/run_mixer.js (15 s)
 ```
 
-## Results (2026-11-15, examples 2026-11-16)
+## Results
 
-| Level | What ran | Outcome |
-|---|---|---|
-| Step functions | 15 complete explorations, 62,159,540 states, 5,356,005 firing steps | 0 illegal firings, 0 anomalies; no stall on conflict-free / free-choice nets; stalls found on `mutex-idle` and (arbitrary choice) `philosophers` |
-| Naive mapping | 8 bounded explorations | illegal firings in all 8, shortest after 4–48 steps |
-| Task layer | 24 runs under the FreeRTOS POSIX port (8 nets × 3 seeds); 21 reached 1,000,000 firings, 21,008,753 in total | 0 illegal, 0 anomalies; `mutex-idle` stalls as predicted (`philosophers-2` added 2026-11-18) |
-| Emulated RP2040 | sample 01, 11 firings; sample 02, 12 firings over two batches | all legal; LEDs as expected |
-| Application examples (closed nets A1–A3) | 9 runs under the FreeRTOS POSIX port, 9,001,432 firings; bounded exploration, 30 million states each | 0 illegal, 0 anomalies; the explorations are incomplete (markings reached: 31/144, 14/14, 59/225) |
+`test/results/` holds the recorded outputs: `validation.txt`, `embedded.txt`,
+`naive.txt`, `traces.txt`, `tight.txt`, `mutants.txt`, the per-net files under
+`results/explore/` and the FreeRTOS runs in `freertos.txt`. The manuscript
+reports these; Supplementary File S1 contains the full package, including the
+table generator.
 
 Not done: a run on physical hardware, a run in Wokwi, any timing / memory /
 energy measurement.

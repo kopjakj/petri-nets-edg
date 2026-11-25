@@ -15,7 +15,10 @@
  *  in its inputs although not in its interleaving (the port's tick is a real
  *  timer signal).
  *
- *  usage: pn_freertos <net-name> <firings> [seed]
+ *  The design is "offer" (version 1: every offer is kept) or "release"
+ *  (version 2: release inputs configured by edg_pn_auto_release()).
+ *
+ *  usage: pn_freertos <net-name> <firings> [seed] [offer|release]
  *============================================================================*/
 #include <stdio.h>
 #include <stdlib.h>
@@ -61,6 +64,8 @@ static const net_t *N;
 static int  mabs[MAXP];
 static volatile unsigned long n_fire, n_illegal, fire_count[MAXT];
 static unsigned long target;
+static const char *design = "release";
+static size_t outside;
 
 static int is_enabled(int t){ for(int i=0;i<N->npre[t];i++) if(mabs[N->pre[t][i]]<=0) return 0; return 1; }
 
@@ -91,8 +96,8 @@ static void supervisor(void *arg)
     }
     vTaskSuspendAll();
     int dead = 1; for (int t=0;t<N->nt;t++) if (is_enabled(t)) dead = 0;
-    printf("%-15s firings=%-8lu illegal=%-3lu anomalies=%-3lu sends=%-9lu yields=%-8lu stop: %s%s\n",
-           N->name, n_fire, n_illegal, n_anomalies, n_sends, n_yields, why,
+    printf("%-15s %-7s firings=%-8lu illegal=%-3lu anomalies=%-3lu sends=%-9lu yields=%-8lu stop: %s%s\n",
+           N->name, design, n_fire, n_illegal, n_anomalies, n_sends, n_yields, why,
            strcmp(why,"target reached") ? (dead ? " (dead marking)" : " (STALL: marking not dead)") : "");
     printf("                per transition:");
     for (int t=0;t<N->nt;t++) printf(" %s=%lu", N->tname[t], fire_count[t]);
@@ -103,11 +108,13 @@ static void supervisor(void *arg)
 
 int main(int argc, char **argv)
 {
-    if (argc < 3) { fprintf(stderr,"usage: %s <net> <firings> [seed]\n", argv[0]); return 2; }
+    if (argc < 3) { fprintf(stderr,"usage: %s <net> <firings> [seed] [offer|release]\n", argv[0]); return 2; }
     for (int i=0;i<N_NETS;i++) if (!strcmp(NETS[i].name, argv[1])) N = &NETS[i];
     if (!N) { fprintf(stderr,"unknown net\n"); return 2; }
     target = strtoul(argv[2], NULL, 10);
     if (argc > 3) rng = (unsigned)strtoul(argv[3], NULL, 10) | 1u;
+    if (argc > 4) design = argv[4];
+    if (strcmp(design, "offer") && strcmp(design, "release")) { fprintf(stderr,"unknown design\n"); return 2; }
 
     QueueHandle_t qp[MAXP], qt[MAXT];
     for (int p=0;p<N->np;p++) { qp[p] = edg_wire(8); configASSERT(qp[p]); mabs[p] = N->m0[p]; }
@@ -123,6 +130,12 @@ int main(int argc, char **argv)
                                       .on_fire = on_fire, .ctx = (void*)(intptr_t)t };
         for (int k=0;k<N->npre[t];k++)  T[t].pre[T[t].n_pre++]   = qp[N->pre[t][k]];
         for (int k=0;k<N->npost[t];k++) T[t].post[T[t].n_post++] = qp[N->post[t][k]];
+    }
+
+    outside = edg_pn_auto_release(P, (size_t)N->np, T, (size_t)N->nt);
+    if (!strcmp(design, "offer")) {                  /* version 1: keep every offer */
+        for (int p=0;p<N->np;p++) P[p].release_mask = 0;
+        for (int t=0;t<N->nt;t++) T[t].release_input = 0;
     }
 
     BaseType_t ok = pdPASS;

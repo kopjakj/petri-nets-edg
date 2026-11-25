@@ -1,0 +1,8 @@
+level-crossing  offer         states=2000002  steps=15247794  firings=88770    unsound=0      anomalies=0     quiescent=0    stalls=0    markings=7/9 edges=7/11 maxq=2 releases=0 requests=0
+    !! state limit (2000000) reached: exploration INCOMPLETE
+level-crossing  offer*        states=2000002  steps=15247794  firings=88770    unsound=0      anomalies=0     quiescent=0    stalls=0    markings=7/9 edges=7/11 maxq=2 releases=0 requests=0
+    !! state limit (2000000) reached: exploration INCOMPLETE
+level-crossing  release       states=2000002  steps=15247794  firings=88770    unsound=0      anomalies=0     quiescent=0    stalls=0    markings=7/9 edges=7/11 maxq=2 releases=0 requests=0
+    !! state limit (2000000) reached: exploration INCOMPLETE
+level-crossing  release*      states=2000002  steps=15247794  firings=88770    unsound=0      anomalies=0     quiescent=0    stalls=0    markings=7/9 edges=7/11 maxq=2 releases=0 requests=0
+    !! state limit (2000000) reached: exploration INCOMPLETE

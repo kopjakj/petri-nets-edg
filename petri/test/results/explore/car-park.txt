@@ -1,0 +1,10 @@
+car-park        offer         states=2000003  steps=14443771  firings=142950   unsound=0      anomalies=0     quiescent=0    stalls=0    markings=4/109 edges=5/372 maxq=4 releases=0 requests=0
+    !! state limit (2000000) reached: exploration INCOMPLETE
+car-park        offer*        states=2000001  steps=14424691  firings=142195   unsound=0      anomalies=0     quiescent=0    stalls=0    markings=4/109 edges=5/372 maxq=4 releases=0 requests=0
+    !! state limit (2000000) reached: exploration INCOMPLETE
+car-park        release       states=2000001  steps=14096124  firings=127221   unsound=0      anomalies=0     quiescent=0    stalls=0    markings=4/109 edges=5/372 maxq=4 releases=0 requests=289861
+    1 transition(s) with two or more shared inputs keep every offer (version-1 behaviour)
+    !! state limit (2000000) reached: exploration INCOMPLETE
+car-park        release*      states=2000001  steps=14075635  firings=126519   unsound=0      anomalies=0     quiescent=0    stalls=0    markings=4/109 edges=5/372 maxq=4 releases=0 requests=288414
+    1 transition(s) with two or more shared inputs keep every offer (version-1 behaviour)
+    !! state limit (2000000) reached: exploration INCOMPLETE

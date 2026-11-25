@@ -1,0 +1,4 @@
+fork-join       offer         states=267297   steps=1435388   firings=35253    unsound=0      anomalies=0     quiescent=0    stalls=0    markings=5/5 edges=6/6 maxq=3 releases=0 requests=0
+fork-join       offer*        states=267297   steps=1435388   firings=35253    unsound=0      anomalies=0     quiescent=0    stalls=0    markings=5/5 edges=6/6 maxq=3 releases=0 requests=0
+fork-join       release       states=267297   steps=1435388   firings=35253    unsound=0      anomalies=0     quiescent=0    stalls=0    markings=5/5 edges=6/6 maxq=3 releases=0 requests=0
+fork-join       release*      states=267297   steps=1435388   firings=35253    unsound=0      anomalies=0     quiescent=0    stalls=0    markings=5/5 edges=6/6 maxq=3 releases=0 requests=0

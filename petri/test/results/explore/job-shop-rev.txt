@@ -1,0 +1,6 @@
+job-shop-rev    offer         states=25600    steps=131840    firings=1280     unsound=0      anomalies=0     quiescent=1    stalls=0    markings=4/6 edges=4/8 maxq=2 releases=0 requests=0
+job-shop-rev    offer*        states=277401   steps=1568694   firings=13402    unsound=0      anomalies=0     quiescent=2    stalls=1    markings=6/6 edges=8/8 maxq=2 releases=0 requests=0
+job-shop-rev    release       states=2000001  steps=11443896  firings=102252   unsound=0      anomalies=0     quiescent=1    stalls=0    markings=6/6 edges=8/8 maxq=5 releases=252060 requests=450909
+    !! state limit (2000000) reached: exploration INCOMPLETE
+job-shop-rev    release*      states=2000001  steps=11384667  firings=96252    unsound=0      anomalies=0     quiescent=1    stalls=0    markings=6/6 edges=8/8 maxq=5 releases=368915 requests=460326
+    !! state limit (2000000) reached: exploration INCOMPLETE
