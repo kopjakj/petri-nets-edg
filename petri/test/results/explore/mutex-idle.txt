@@ -1,0 +1,4 @@
+mutex-idle      offer         states=36288    steps=198504    firings=1944     unsound=0      anomalies=0     quiescent=1    stalls=1    markings=2/3 edges=1/3 maxq=2 releases=0 requests=0
+mutex-idle      offer*        states=235548   steps=1378566   firings=19440    unsound=0      anomalies=0     quiescent=1    stalls=1    markings=3/3 edges=3/3 maxq=3 releases=0 requests=0
+mutex-idle      release       states=445635   steps=2654046   firings=34533    unsound=0      anomalies=0     quiescent=0    stalls=0    markings=3/3 edges=3/3 maxq=4 releases=41256 requests=23004
+mutex-idle      release*      states=672327   steps=4041495   firings=52083    unsound=0      anomalies=0     quiescent=0    stalls=0    markings=3/3 edges=3/3 maxq=4 releases=81054 requests=35478

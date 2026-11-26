@@ -1,0 +1,18 @@
+iot-gateway     firings=1000107  illegal=0   anomalies=0   sends=5143415   yields=1287057  stop: target reached
+                per transition: sample1=142873 sample2=142873 sample3=142873 merge=142873 send=142872 net=142872 confirm=142871
+iot-gateway     firings=1000333  illegal=0   anomalies=0   sends=5144584   yields=1286840  stop: target reached
+                per transition: sample1=142905 sample2=142905 sample3=142905 merge=142905 send=142905 net=142904 confirm=142904
+iot-gateway     firings=1000283  illegal=0   anomalies=0   sends=5144320   yields=1286752  stop: target reached
+                per transition: sample1=142898 sample2=142898 sample3=142898 merge=142898 send=142897 net=142897 confirm=142897
+batch-mixer     firings=1000045  illegal=0   anomalies=0   sends=4800233   yields=1201325  stop: target reached
+                per transition: start=100005 endA=100005 endB=100005 join=100004 mixdone=100004 endD=100004 sensA=100005 sensB=100005 timer=100004 sensE=100004
+batch-mixer     firings=1000115  illegal=0   anomalies=0   sends=4800565   yields=1200873  stop: target reached
+                per transition: start=100012 endA=100012 endB=100012 join=100011 mixdone=100011 endD=100011 sensA=100012 sensB=100012 timer=100011 sensE=100011
+batch-mixer     firings=1000175  illegal=0   anomalies=0   sends=4800847   yields=1200941  stop: target reached
+                per transition: start=100018 endA=100018 endB=100018 join=100017 mixdone=100017 endD=100017 sensA=100018 sensB=100018 timer=100017 sensE=100017
+ev-site         firings=1000065  illegal=0   anomalies=0   sends=3750194   yields=938500   stop: target reached
+                per transition: arrive=250017 toL1=83339 toL2=83339 toL3=83339 con1=83339 con2=83339 con3=83339 fin1=83338 fin2=83338 fin3=83338
+ev-site         firings=1000165  illegal=0   anomalies=0   sends=3750624   yields=937357   stop: target reached
+                per transition: arrive=250043 toL1=83348 toL2=83347 toL3=83347 con1=83347 con2=83347 con3=83347 fin1=83347 fin2=83346 fin3=83346
+ev-site         firings=1000144  illegal=0   anomalies=0   sends=3750538   yields=937344   stop: target reached
+                per transition: arrive=250037 toL1=83346 toL2=83345 toL3=83345 con1=83346 con2=83345 con3=83345 fin1=83345 fin2=83345 fin3=83345

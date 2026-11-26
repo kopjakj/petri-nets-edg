@@ -1,0 +1,18 @@
+# Host test binaries and objects (built by "make" in petri/test)
+petri/test/pn_unit
+petri/test/pn_explore
+petri/test/pn_freertos
+petri/test/*.o
+samples/common/test/test
+samples/common/test/fb
+samples/common/test/alu
+samples/common/test/interlock
+
+# CMake build trees
+build/
+build-*/
+cm*/
+
+# Python cache
+__pycache__/
+*.pyc

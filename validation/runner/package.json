@@ -1,0 +1,9 @@
+{
+  "name": "edg-pn-rp2040-reproduction",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pinned rp2040js dependency for the archived EDG-PN firmware traces",
+  "dependencies": {
+    "rp2040js": "1.4.2"
+  }
+}

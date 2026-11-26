@@ -1,0 +1,8 @@
+mutex           offer         states=2000001  steps=12406061  firings=340787   unsound=0      anomalies=0     quiescent=0    stalls=0    markings=8/8 edges=14/14 maxq=3 releases=0 requests=0
+    !! state limit (2000000) reached: exploration INCOMPLETE
+mutex           offer*        states=2000001  steps=12228280  firings=317612   unsound=0      anomalies=0     quiescent=0    stalls=0    markings=8/8 edges=14/14 maxq=3 releases=0 requests=0
+    !! state limit (2000000) reached: exploration INCOMPLETE
+mutex           release       states=2000001  steps=11847049  firings=280283   unsound=0      anomalies=0     quiescent=0    stalls=0    markings=8/8 edges=14/14 maxq=4 releases=107805 requests=161776
+    !! state limit (2000000) reached: exploration INCOMPLETE
+mutex           release*      states=2000001  steps=11633181  firings=262785   unsound=0      anomalies=0     quiescent=0    stalls=0    markings=8/8 edges=14/14 maxq=4 releases=148204 requests=176398
+    !! state limit (2000000) reached: exploration INCOMPLETE

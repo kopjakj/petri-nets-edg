@@ -1,0 +1,498 @@
+{
+  "verification": "PASS: recorded evidence replayed; no new simulations",
+  "runs": 1140,
+  "firings": 1920420,
+  "ends": {
+    "target": 960,
+    "dead": 180
+  },
+  "illegal": 0,
+  "anomalies": 0,
+  "malformed": 0,
+  "qfull": 0,
+  "topology_mismatches": 0,
+  "traces_replayed": 1140,
+  "by_depth": {
+    "2": {
+      "runs": 380,
+      "target": 320,
+      "dead": 60,
+      "firings": 640140
+    },
+    "4": {
+      "runs": 380,
+      "target": 320,
+      "dead": 60,
+      "firings": 640140
+    },
+    "16": {
+      "runs": 380,
+      "target": 320,
+      "dead": 60,
+      "firings": 640140
+    }
+  },
+  "coverage": [
+    {
+      "name": "fork-join",
+      "reachable": 5,
+      "grouped_rr": 5,
+      "grouped_rand": 5,
+      "max_observed_gap": 4
+    },
+    {
+      "name": "buffer-2",
+      "reachable": 12,
+      "grouped_rr": 11,
+      "grouped_rand": 11,
+      "max_observed_gap": 5
+    },
+    {
+      "name": "choice-merge",
+      "reachable": 10,
+      "grouped_rr": 8,
+      "grouped_rand": 8,
+      "max_observed_gap": 7
+    },
+    {
+      "name": "kitting",
+      "reachable": 9,
+      "grouped_rr": 7,
+      "grouped_rand": 7,
+      "max_observed_gap": 4
+    },
+    {
+      "name": "mutex",
+      "reachable": 8,
+      "grouped_rr": 8,
+      "grouped_rand": 8,
+      "max_observed_gap": 8
+    },
+    {
+      "name": "mutex-idle",
+      "reachable": 3,
+      "grouped_rr": 3,
+      "grouped_rand": 3,
+      "max_observed_gap": 2
+    },
+    {
+      "name": "philosophers-2",
+      "reachable": 3,
+      "grouped_rr": 3,
+      "grouped_rand": 3,
+      "max_observed_gap": 5
+    },
+    {
+      "name": "philosophers-3",
+      "reachable": 4,
+      "grouped_rr": 4,
+      "grouped_rand": 4,
+      "max_observed_gap": 13
+    },
+    {
+      "name": "efc-pair",
+      "reachable": 1,
+      "grouped_rr": 1,
+      "grouped_rand": 1,
+      "max_observed_gap": 1
+    },
+    {
+      "name": "sensor-choice",
+      "reachable": 3,
+      "grouped_rr": 3,
+      "grouped_rand": 3,
+      "max_observed_gap": 2
+    },
+    {
+      "name": "sensor-choice-2",
+      "reachable": 8,
+      "grouped_rr": 8,
+      "grouped_rand": 8,
+      "max_observed_gap": 7
+    },
+    {
+      "name": "job-shop",
+      "reachable": 6,
+      "grouped_rr": 4,
+      "grouped_rand": 4,
+      "max_observed_gap": 2
+    },
+    {
+      "name": "job-shop-rev",
+      "reachable": 6,
+      "grouped_rr": 4,
+      "grouped_rand": 4,
+      "max_observed_gap": 2
+    },
+    {
+      "name": "level-crossing",
+      "reachable": 9,
+      "grouped_rr": 9,
+      "grouped_rand": 9,
+      "max_observed_gap": 7
+    },
+    {
+      "name": "car-park",
+      "reachable": 109,
+      "grouped_rr": 77,
+      "grouped_rand": 77,
+      "max_observed_gap": 146
+    },
+    {
+      "name": "philosophers-5",
+      "reachable": 11,
+      "grouped_rr": 11,
+      "grouped_rand": 11,
+      "max_observed_gap": 27
+    },
+    {
+      "name": "philosophers-3-split",
+      "reachable": 14,
+      "grouped_rr": 8,
+      "grouped_rand": 8,
+      "max_observed_gap": 3
+    },
+    {
+      "name": "mutex-3",
+      "reachable": 20,
+      "grouped_rr": 17,
+      "grouped_rand": 17,
+      "max_observed_gap": 12
+    },
+    {
+      "name": "greedy-pair",
+      "reachable": 5,
+      "grouped_rr": 5,
+      "grouped_rand": 5,
+      "max_observed_gap": 8
+    }
+  ],
+  "search": {
+    "unique_nets": 26,
+    "files": {
+      "results_repo.txt": 19,
+      "results_s1.txt": 23
+    },
+    "statuses": {
+      "complete": 12,
+      "overflow pruned": 7,
+      "state cap": 7
+    },
+    "states_in_unique_records": 42420802,
+    "mutants_reported_detected": 6,
+    "records": [
+      {
+        "name": "s-shared",
+        "states": 752,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "complete"
+      },
+      {
+        "name": "s-shared-2tok",
+        "states": 7304,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "complete"
+      },
+      {
+        "name": "s-partial",
+        "states": 488,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "complete"
+      },
+      {
+        "name": "s-chain",
+        "states": 1404,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "complete"
+      },
+      {
+        "name": "s-bridge",
+        "states": 926,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "complete"
+      },
+      {
+        "name": "s-cycle",
+        "states": 42,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "complete"
+      },
+      {
+        "name": "x-three-way",
+        "states": 16536,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "complete"
+      },
+      {
+        "name": "x-cross",
+        "states": 76560,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "complete"
+      },
+      {
+        "name": "fork-join",
+        "states": 2352,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "complete"
+      },
+      {
+        "name": "buffer-2",
+        "states": 68574,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "complete"
+      },
+      {
+        "name": "choice-merge",
+        "states": 342824,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 3248,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "overflow pruned"
+      },
+      {
+        "name": "kitting",
+        "states": 22044,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "complete"
+      },
+      {
+        "name": "mutex",
+        "states": 1363952,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 24752,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "overflow pruned"
+      },
+      {
+        "name": "mutex-idle",
+        "states": 44880,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 416,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "overflow pruned"
+      },
+      {
+        "name": "philosophers-2",
+        "states": 359242,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 10226,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "overflow pruned"
+      },
+      {
+        "name": "philosophers-3",
+        "states": 5000001,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "state cap"
+      },
+      {
+        "name": "iot-gateway",
+        "states": 5000001,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "state cap"
+      },
+      {
+        "name": "batch-mixer",
+        "states": 5000001,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "state cap"
+      },
+      {
+        "name": "ev-site",
+        "states": 5000002,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "state cap"
+      },
+      {
+        "name": "efc-pair",
+        "states": 2704,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 62,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "overflow pruned"
+      },
+      {
+        "name": "sensor-choice",
+        "states": 44880,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 416,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "overflow pruned"
+      },
+      {
+        "name": "sensor-choice-2",
+        "states": 1363952,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 24752,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "overflow pruned"
+      },
+      {
+        "name": "job-shop",
+        "states": 5000001,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "state cap"
+      },
+      {
+        "name": "job-shop-rev",
+        "states": 5000003,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "state cap"
+      },
+      {
+        "name": "level-crossing",
+        "states": 3701376,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "complete"
+      },
+      {
+        "name": "car-park",
+        "states": 5000001,
+        "illegal": 0,
+        "errors": 0,
+        "lost": 0,
+        "balance": 0,
+        "overflow": 0,
+        "stalls": 0,
+        "badfinal": 0,
+        "status": "state cap"
+      }
+    ]
+  }
+}

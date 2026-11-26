@@ -1,0 +1,4 @@
+choice-merge    offer         states=245282   steps=1124498   firings=44509    unsound=0      anomalies=0     quiescent=0    stalls=0    markings=10/10 edges=20/20 maxq=4 releases=0 requests=0
+choice-merge    offer*        states=274127   steps=1286627   firings=50631    unsound=0      anomalies=0     quiescent=0    stalls=0    markings=10/10 edges=20/20 maxq=4 releases=0 requests=0
+choice-merge    release       states=245282   steps=1124498   firings=44509    unsound=0      anomalies=0     quiescent=0    stalls=0    markings=10/10 edges=20/20 maxq=4 releases=0 requests=0
+choice-merge    release*      states=274127   steps=1286627   firings=50631    unsound=0      anomalies=0     quiescent=0    stalls=0    markings=10/10 edges=20/20 maxq=4 releases=0 requests=0

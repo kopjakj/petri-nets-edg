@@ -1,0 +1,6 @@
+philosophers-2  offer         states=176092   steps=937844    firings=2788     unsound=0      anomalies=0     quiescent=0    stalls=0    markings=3/3 edges=4/4 maxq=3 releases=0 requests=0
+philosophers-2  offer*        states=338427   steps=1844502   firings=3630     unsound=0      anomalies=0     quiescent=2    stalls=2    markings=3/3 edges=4/4 maxq=3 releases=0 requests=0
+philosophers-2  release       states=176092   steps=937844    firings=2788     unsound=0      anomalies=0     quiescent=0    stalls=0    markings=3/3 edges=4/4 maxq=3 releases=0 requests=0
+    2 transition(s) with two or more shared inputs keep every offer (version-1 behaviour)
+philosophers-2  release*      states=338427   steps=1844502   firings=3630     unsound=0      anomalies=0     quiescent=2    stalls=2    markings=3/3 edges=4/4 maxq=3 releases=0 requests=0
+    2 transition(s) with two or more shared inputs keep every offer (version-1 behaviour)

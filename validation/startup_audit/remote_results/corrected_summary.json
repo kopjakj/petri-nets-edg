@@ -1,0 +1,14 @@
+{
+  "runs": 1140,
+  "firings": 1920420,
+  "ends": {
+    "target": 960,
+    "dead": 180
+  },
+  "illegal": 0,
+  "anomalies": 0,
+  "malformed": 0,
+  "mismatches": 0,
+  "errors": [],
+  "wall_seconds": 343.8
+}

@@ -1,0 +1,4 @@
+## no reset: a transition keeps d = 0 after firing: fork-join offer: anomalies=2401, first place anomaly after 32 steps  -> DETECTED
+## re-offer: a place offers while an offer is open: buffer-2 offer: unsound=1529, first illegal firing after 10 steps  -> DETECTED
+## fire early: the release-input offer fires before the kept offers: sensor-choice release: unsound=5508, first illegal firing after 6 steps  -> DETECTED
+## no request: a transition never asks for a released token: sensor-choice release: stalls=1, first stall after 34 steps  -> DETECTED

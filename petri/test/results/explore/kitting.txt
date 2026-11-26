@@ -1,0 +1,4 @@
+kitting         offer         states=47011    steps=210820    firings=6079     unsound=0      anomalies=0     quiescent=0    stalls=0    markings=5/9 edges=6/12 maxq=3 releases=0 requests=0
+kitting         offer*        states=102635   steps=465691    firings=13761    unsound=0      anomalies=0     quiescent=2    stalls=0    markings=9/9 edges=12/12 maxq=4 releases=0 requests=0
+kitting         release       states=47011    steps=210820    firings=6079     unsound=0      anomalies=0     quiescent=0    stalls=0    markings=5/9 edges=6/12 maxq=3 releases=0 requests=0
+kitting         release*      states=102635   steps=465691    firings=13761    unsound=0      anomalies=0     quiescent=2    stalls=0    markings=9/9 edges=12/12 maxq=4 releases=0 requests=0

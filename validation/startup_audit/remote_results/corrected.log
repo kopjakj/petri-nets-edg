@@ -1,0 +1,13 @@
+100/1140 elapsed=12.8s
+200/1140 elapsed=28.5s
+300/1140 elapsed=81.9s
+400/1140 elapsed=115.6s
+500/1140 elapsed=129.6s
+600/1140 elapsed=146.3s
+700/1140 elapsed=205.2s
+800/1140 elapsed=237.0s
+900/1140 elapsed=249.9s
+1000/1140 elapsed=289.3s
+1100/1140 elapsed=338.1s
+1140/1140 elapsed=343.8s
+{"runs": 1140, "firings": 1920420, "ends": {"target": 960, "dead": 180}, "illegal": 0, "anomalies": 0, "malformed": 0, "mismatches": 0, "errors": [], "wall_seconds": 343.8}

@@ -1,0 +1,7 @@
+{
+  "startup_audit/after.bin": "cfac1682e6172e76ce56a4598de42948fb163214907f1d974f3396bebbe0a4ff",
+  "fw/main.c": "1c3cb3b064a7b72f50065594f82df9845fdc199a28447ba3f26196bce9e63b38",
+  "runner/run.js": "0b724e39ad3ac26ecb73123273268bcda4390ae815f14077769501b0a9d0b5de",
+  "fw/lib/edg_pn_choice.c": "ef970ed6e12e16ec704e335f0c8593024d2f92c54fa3255f83964c54c75707db",
+  "runner/nets.json": "c8d89e95891577649e0bc5d8e48e4b75c3527118e2d2093c9d5e8f83bffcc58c"
+}

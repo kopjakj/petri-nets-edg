@@ -1,0 +1,8 @@
+buffer-2        offer         states=2000001  steps=12125122  firings=312865   unsound=0      anomalies=0     quiescent=0    stalls=0    markings=10/12 edges=16/20 maxq=3 releases=0 requests=0
+    !! state limit (2000000) reached: exploration INCOMPLETE
+buffer-2        offer*        states=2000001  steps=12125122  firings=312865   unsound=0      anomalies=0     quiescent=0    stalls=0    markings=10/12 edges=16/20 maxq=3 releases=0 requests=0
+    !! state limit (2000000) reached: exploration INCOMPLETE
+buffer-2        release       states=2000001  steps=12125122  firings=312865   unsound=0      anomalies=0     quiescent=0    stalls=0    markings=10/12 edges=16/20 maxq=3 releases=0 requests=0
+    !! state limit (2000000) reached: exploration INCOMPLETE
+buffer-2        release*      states=2000001  steps=12125122  firings=312865   unsound=0      anomalies=0     quiescent=0    stalls=0    markings=10/12 edges=16/20 maxq=3 releases=0 requests=0
+    !! state limit (2000000) reached: exploration INCOMPLETE

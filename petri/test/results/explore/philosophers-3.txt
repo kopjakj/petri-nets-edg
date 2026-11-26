@@ -1,0 +1,10 @@
+philosophers-3  offer         states=2000004  steps=14161342  firings=0        unsound=0      anomalies=0     quiescent=0    stalls=0    markings=1/4 edges=0/6 maxq=3 releases=0 requests=0
+    !! state limit (2000000) reached: exploration INCOMPLETE
+philosophers-3  offer*        states=2000002  steps=13178464  firings=0        unsound=0      anomalies=0     quiescent=0    stalls=0    markings=1/4 edges=0/6 maxq=3 releases=0 requests=0
+    !! state limit (2000000) reached: exploration INCOMPLETE
+philosophers-3  release       states=2000004  steps=14161342  firings=0        unsound=0      anomalies=0     quiescent=0    stalls=0    markings=1/4 edges=0/6 maxq=3 releases=0 requests=0
+    3 transition(s) with two or more shared inputs keep every offer (version-1 behaviour)
+    !! state limit (2000000) reached: exploration INCOMPLETE
+philosophers-3  release*      states=2000002  steps=13178464  firings=0        unsound=0      anomalies=0     quiescent=0    stalls=0    markings=1/4 edges=0/6 maxq=3 releases=0 requests=0
+    3 transition(s) with two or more shared inputs keep every offer (version-1 behaviour)
+    !! state limit (2000000) reached: exploration INCOMPLETE

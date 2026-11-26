@@ -1,0 +1,77 @@
+   0.301  
+   0.301  === Event-Driven Gates :: 13 Petri net: kitting cell ===
+   0.301  (distance-descriptor software gates on RP2350 + FreeRTOS)
+   0.301  
+   0.302  starting scheduler...
+   0.302  [PART   ] in =0 (init)
+   0.302  [SHIP   ] in =0 (init)
+   0.302  [IN     ] init  M=0
+   0.302  [QA     ] init  M=0
+   0.302  [QB     ] init  M=0
+   0.302  [RA     ] init  M=0
+   0.302  [RB     ] init  M=0
+   0.302  [DONE   ] init  M=0
+   0.302  [TAKE   ] init  M=0
+   1.000  [PART   ] in =1 (chg)
+   1.000  [arrive ] token
+   1.000  [IN     ] +1  M=1
+   1.000  [toA    ] fire
+   1.000  [IN     ] -1  M=0
+   1.000  [QA     ] +1  M=1
+   1.000  [workA  ] fire
+   1.000  [QA     ] -1  M=0
+   1.402  [RA     ] +1  M=1
+   1.500  [PART   ] in =0 (chg)
+   2.000  [PART   ] in =1 (chg)
+   2.000  [arrive ] token
+   2.000  [IN     ] +1  M=1
+   2.000  [toB    ] fire
+   2.000  [IN     ] -1  M=0
+   2.000  [QB     ] +1  M=1
+   2.000  [workB  ] fire
+   2.000  [QB     ] -1  M=0
+   2.500  [PART   ] in =0 (chg)
+   2.802  [RB     ] +1  M=1
+   2.802  [join   ] fire
+   2.802  [RA     ] -1  M=0
+   2.802  [RB     ] -1  M=0
+   2.802  [DONE   ] +1  M=1
+   3.000  [PART   ] in =1 (chg)
+   3.000  [arrive ] token
+   3.000  [IN     ] +1  M=1
+   3.000  [toA    ] fire
+   3.000  [IN     ] -1  M=0
+   3.000  [QA     ] +1  M=1
+   3.000  [workA  ] fire
+   3.000  [QA     ] -1  M=0
+   3.402  [RA     ] +1  M=1
+   3.500  [PART   ] in =0 (chg)
+   6.000  [SHIP   ] in =1 (chg)
+   6.000  [order  ] token
+   6.000  [TAKE   ] +1  M=1
+   6.000  [ship   ] fire
+   6.000  [DONE   ] -1  M=0
+   6.000  [TAKE   ] -1  M=0
+   6.500  [SHIP   ] in =0 (chg)
+   7.000  [PART   ] in =1 (chg)
+   7.000  [arrive ] token
+   7.000  [IN     ] +1  M=1
+   7.000  [toB    ] fire
+   7.000  [IN     ] -1  M=0
+   7.000  [QB     ] +1  M=1
+   7.000  [workB  ] fire
+   7.000  [QB     ] -1  M=0
+   7.500  [PART   ] in =0 (chg)
+   7.802  [RB     ] +1  M=1
+   7.802  [join   ] fire
+   7.802  [RA     ] -1  M=0
+   7.802  [RB     ] -1  M=0
+   7.802  [DONE   ] +1  M=1
+
+--- check -------------------------------------------------------
+simulated time      : 12 s, 69 trace lines
+firing sequence     : toA workA toB workB join toA workA ship toB workB join
+firings             : 11, illegal: 0, protocol anomalies: 0
+final marking (ref) : {"IN":0,"QA":0,"QB":0,"RA":0,"RB":0,"DONE":1,"TAKE":0}
+final LEDs          : IN=0 QA=0 QB=0 DONE=1
+LEDs match marking  : yes

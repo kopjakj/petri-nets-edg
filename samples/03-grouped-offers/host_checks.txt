@@ -1,0 +1,9 @@
+P=1 Q=1; A and B each need P,Q
+  grant A
+  P=0 Q=0 DoneA=1 DoneB=0
+P=1 Q=0 R=1; A needs P,Q and B needs P,R
+  grant B
+  DoneA=0 DoneB=1
+Concurrent workers: A=16 B=16 (shared pairs=32), C=32 (independent)
+Two pairs, 256 seeds: A=255 B=257 max intervening grants before service=1
+Passed 256 mailbox schedules for each of 6 nets; both P/Q winners observed.

@@ -1,0 +1,8 @@
+sensor-choice-2 offer         states=2000001  steps=12450943  firings=302632   unsound=0      anomalies=0     quiescent=0    stalls=0    markings=8/8 edges=14/14 maxq=3 releases=0 requests=0
+    !! state limit (2000000) reached: exploration INCOMPLETE
+sensor-choice-2 offer*        states=2000001  steps=12214766  firings=291979   unsound=0      anomalies=0     quiescent=0    stalls=0    markings=8/8 edges=14/14 maxq=3 releases=0 requests=0
+    !! state limit (2000000) reached: exploration INCOMPLETE
+sensor-choice-2 release       states=2000001  steps=11778216  firings=262023   unsound=0      anomalies=0     quiescent=0    stalls=0    markings=8/8 edges=14/14 maxq=4 releases=145973 requests=162527
+    !! state limit (2000000) reached: exploration INCOMPLETE
+sensor-choice-2 release*      states=2000002  steps=11618000  firings=247277   unsound=0      anomalies=0     quiescent=0    stalls=0    markings=8/8 edges=14/14 maxq=4 releases=177328 requests=176528
+    !! state limit (2000000) reached: exploration INCOMPLETE

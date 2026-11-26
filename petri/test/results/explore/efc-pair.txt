@@ -1,0 +1,6 @@
+efc-pair        offer         states=128      steps=250       firings=2        unsound=0      anomalies=0     quiescent=0    stalls=0    markings=1/1 edges=2/2 maxq=2 releases=0 requests=0
+efc-pair        offer*        states=189      steps=384       firings=2        unsound=0      anomalies=0     quiescent=2    stalls=2    markings=1/1 edges=2/2 maxq=2 releases=0 requests=0
+efc-pair        release       states=128      steps=250       firings=2        unsound=0      anomalies=0     quiescent=0    stalls=0    markings=1/1 edges=2/2 maxq=2 releases=0 requests=0
+    2 transition(s) with two or more shared inputs keep every offer (version-1 behaviour)
+efc-pair        release*      states=189      steps=384       firings=2        unsound=0      anomalies=0     quiescent=2    stalls=2    markings=1/1 edges=2/2 maxq=2 releases=0 requests=0
+    2 transition(s) with two or more shared inputs keep every offer (version-1 behaviour)

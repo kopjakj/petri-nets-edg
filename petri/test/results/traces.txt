@@ -1,0 +1,323 @@
+EDG-PN exhaustive interleaving exploration (queue depth 8)
+
+# fork-join  [marked graph, safe]  |P|=5 |T|=4
+fork-join       naive-preset  states=300001   steps=1439380   firings=48192    unsound=19908  anomalies=42615 quiescent=0    stalls=0    markings=5/5 edges=6/6 maxq=5 releases=0 requests=0
+    !! state limit (300000) reached: exploration INCOMPLETE
+    first illegal firing:
+      trace (48 steps; token messages and firings only):
+        init   p0 +1
+        p0       processes a message (M=1)
+        p0       -> its consumer(s): level
+        FIRE   fork      abstract marking before: {p0}
+        fork     -> p0 : withdraw
+        p0       processes a message (M=0)
+        p0       -> its consumer(s): level
+        fork     -> p1 : deposit
+        p1       processes a message (M=1)
+        p1       -> its consumer(s): level
+        fork     -> p2 : deposit
+        p2       processes a message (M=1)
+        p2       -> its consumer(s): level
+        fork     processes a message (d=1)
+        FIRE   a         abstract marking before: {p1 p2}
+        a        -> p1 : withdraw
+        p1       processes a message (M=0)
+        p1       -> its consumer(s): level
+        a        -> p3 : deposit
+        p3       processes a message (M=1)
+        p3       -> its consumer(s): level
+        a        processes a message (d=1)
+        FIRE   b         abstract marking before: {p2 p3}
+        b        -> p2 : withdraw
+        b        -> p4 : deposit
+        p4       processes a message (M=1)
+        p4       -> its consumer(s): level
+        join     processes a message (d=1)
+        FIRE   join      abstract marking before: {p3 p4}
+        join     -> p3 : withdraw
+        p3       processes a message (M=0)
+        p3       -> its consumer(s): level
+        join     -> p4 : withdraw
+        join     -> p0 : deposit
+        p0       processes a message (M=1)
+        p0       -> its consumer(s): level
+        FIRE   fork      abstract marking before: {p0}
+        fork     -> p0 : withdraw
+        fork     -> p1 : deposit
+        p1       processes a message (M=1)
+        p1       -> its consumer(s): level
+        FIRE   a         abstract marking before: {p1 p2}
+        a        -> p1 : withdraw
+        a        -> p3 : deposit
+        p3       processes a message (M=1)
+        p3       -> its consumer(s): level
+        join     processes a message (d=1)
+        FIRE   join      abstract marking before: {p2 p3}
+    first place anomaly (withdrawal without token/offer):
+      trace (59 steps; token messages and firings only):
+        init   p0 +1
+        p0       processes a message (M=1)
+        p0       -> its consumer(s): level
+        FIRE   fork      abstract marking before: {p0}
+        fork     -> p0 : withdraw
+        p0       processes a message (M=0)
+        p0       -> its consumer(s): level
+        fork     -> p1 : deposit
+        p1       processes a message (M=1)
+        p1       -> its consumer(s): level
+        fork     -> p2 : deposit
+        p2       processes a message (M=1)
+        p2       -> its consumer(s): level
+        fork     processes a message (d=1)
+        FIRE   a         abstract marking before: {p1 p2}
+        a        -> p1 : withdraw
+        p1       processes a message (M=0)
+        p1       -> its consumer(s): level
+        a        -> p3 : deposit
+        p3       processes a message (M=1)
+        p3       -> its consumer(s): level
+        a        processes a message (d=1)
+        FIRE   b         abstract marking before: {p2 p3}
+        b        -> p2 : withdraw
+        p2       processes a message (M=0)
+        p2       -> its consumer(s): level
+        b        -> p4 : deposit
+        p4       processes a message (M=1)
+        p4       -> its consumer(s): level
+        b        processes a message (d=1)
+        join     processes a message (d=1)
+        FIRE   join      abstract marking before: {p3 p4}
+        join     -> p3 : withdraw
+        p3       processes a message (M=0)
+        join     -> p4 : withdraw
+        p4       processes a message (M=0)
+        p4       -> its consumer(s): level
+        join     -> p0 : deposit
+        p0       processes a message (M=1)
+        p0       -> its consumer(s): level
+        FIRE   fork      abstract marking before: {p0}
+        fork     -> p0 : withdraw
+        fork     -> p1 : deposit
+        p1       processes a message (M=1)
+        p1       -> its consumer(s): level
+        fork     -> p2 : deposit
+        p2       processes a message (M=1)
+        p2       -> its consumer(s): level
+        FIRE   a         abstract marking before: {p1 p2}
+        FIRE   b         abstract marking before: {p2 p3}
+        b        -> p2 : withdraw
+        b        -> p4 : deposit
+        p4       processes a message (M=1)
+        p4       -> its consumer(s): level
+        p3       -> its consumer(s): level
+        join     processes a message (d=1)
+        FIRE   join      abstract marking before: {p3 p4}
+        join     -> p3 : withdraw
+        p3       processes a message (M=0)
+
+EDG-PN exhaustive interleaving exploration (queue depth 8)
+
+# buffer-2  [marked graph, 2-bounded]  |P|=6 |T|=4
+buffer-2        naive-eager   states=300001   steps=1334911   firings=51606    unsound=18411  anomalies=38482 quiescent=0    stalls=0    markings=5/12 edges=5/20 maxq=3 releases=0 requests=0
+    !! state limit (300000) reached: exploration INCOMPLETE
+    first illegal firing:
+      trace (4 steps; token messages and firings only):
+        init   free +1
+        free     processes a message (M=1)
+        free     -> its consumer(s): level
+        FIRE   put       abstract marking before: {p_rdy freex2 c_rdy}
+    first place anomaly (withdrawal without token/offer):
+      trace (10 steps; token messages and firings only):
+        init   p_rdy +1
+        init   free +1
+        p_rdy    processes a message (M=1)
+        p_rdy    -> its consumer(s): level
+        free     processes a message (M=1)
+        free     -> its consumer(s): level
+        FIRE   produce   abstract marking before: {p_rdy freex2 c_rdy}
+        FIRE   put       abstract marking before: {p_has freex2 c_rdy}
+        put      -> p_has : withdraw
+        p_has    processes a message (M=0)
+
+EDG-PN exhaustive interleaving exploration (queue depth 8)
+
+# choice-merge  [state machine (free choice), 2-bounded]  |P|=4 |T|=5
+choice-merge    naive-preset  states=300003   steps=1337632   firings=124611   unsound=47058  anomalies=15849 quiescent=0    stalls=0    markings=10/10 edges=20/20 maxq=6 releases=0 requests=0
+    !! state limit (300000) reached: exploration INCOMPLETE
+    first illegal firing:
+      trace (16 steps; token messages and firings only):
+        init   p0 +1
+        p0       processes a message (M=1)
+        p0       -> its consumer(s): level
+        p0       -> its consumer(s): level
+        FIRE   a         abstract marking before: {p0x2}
+        a        -> p0 : withdraw
+        init   p0 +1
+        p0       processes a message (M=0)
+        p0       -> its consumer(s): level
+        p0       -> its consumer(s): level
+        p0       processes a message (M=1)
+        p0       -> its consumer(s): level
+        a        -> p1 : deposit
+        a        processes a message (d=1)
+        FIRE   a         abstract marking before: {p0 p1}
+        FIRE   b         abstract marking before: {p1x2}
+    first place anomaly (withdrawal without token/offer):
+      trace (12 steps; token messages and firings only):
+        init   p0 +1
+        p0       processes a message (M=1)
+        p0       -> its consumer(s): level
+        p0       -> its consumer(s): level
+        FIRE   a         abstract marking before: {p0x2}
+        a        -> p0 : withdraw
+        p0       processes a message (M=0)
+        p0       -> its consumer(s): level
+        p0       -> its consumer(s): level
+        FIRE   b         abstract marking before: {p0 p1}
+        b        -> p0 : withdraw
+        p0       processes a message (M=0)
+
+EDG-PN exhaustive interleaving exploration (queue depth 8)
+
+# mutex-idle  [asymmetric choice, one shared input per transition, safe]  |P|=7 |T|=6
+mutex-idle      offer         states=36288    steps=198504    firings=1944     unsound=0      anomalies=0     quiescent=1    stalls=1    markings=2/3 edges=1/3 maxq=2 releases=0 requests=0
+    first stall, abstract marking {want2 r} (not dead in the net):
+      trace (28 steps; token messages and firings only):
+        init   idle1 (empty)
+        init   want1 (empty)
+        init   crit1 (empty)
+        init   idle2 (empty)
+        init   idle2 +1
+        init   want2 (empty)
+        init   crit2 (empty)
+        init   r (empty)
+        init   r +1
+        idle1    processes a message (M=0)
+        want1    processes a message (M=0)
+        crit1    processes a message (M=0)
+        idle2    processes a message (M=0)
+        idle2    processes a message (M=1)
+        idle2    -> its consumer(s): offer
+        want2    processes a message (M=0)
+        crit2    processes a message (M=0)
+        r        processes a message (M=0)
+        r        processes a message (M=1)
+        r        -> its consumer(s): offer
+        enter1   processes a message (d=1)
+        FIRE   req2      abstract marking before: {idle2 r}
+        req2     -> idle2 : withdraw
+        idle2    processes a message (M=0)
+        req2     -> want2 : deposit
+        want2    processes a message (M=1)
+        want2    -> its consumer(s): offer
+        enter2   processes a message (d=1)
+
+EDG-PN exhaustive interleaving exploration (queue depth 8)
+
+# sensor-choice  [asymmetric choice, one shared input per transition, safe]  |P|=7 |T|=6
+sensor-choice   offer         states=36288    steps=198504    firings=1944     unsound=0      anomalies=0     quiescent=1    stalls=1    markings=2/3 edges=1/3 maxq=2 releases=0 requests=0
+    first stall, abstract marking {part okB} (not dead in the net):
+      trace (28 steps; token messages and firings only):
+        init   part (empty)
+        init   part +1
+        init   idleA (empty)
+        init   idleB (empty)
+        init   idleB +1
+        init   okA (empty)
+        init   okB (empty)
+        init   doneA (empty)
+        init   doneB (empty)
+        part     processes a message (M=0)
+        part     processes a message (M=1)
+        part     -> its consumer(s): offer
+        idleA    processes a message (M=0)
+        idleB    processes a message (M=0)
+        idleB    processes a message (M=1)
+        idleB    -> its consumer(s): offer
+        okA      processes a message (M=0)
+        okB      processes a message (M=0)
+        doneA    processes a message (M=0)
+        doneB    processes a message (M=0)
+        FIRE   senseB    abstract marking before: {part idleB}
+        senseB   -> idleB : withdraw
+        idleB    processes a message (M=0)
+        senseB   -> okB : deposit
+        okB      processes a message (M=1)
+        okB      -> its consumer(s): offer
+        toA      processes a message (d=1)
+        toB      processes a message (d=1)
+
+EDG-PN exhaustive interleaving exploration (queue depth 8)
+
+# philosophers-2  [asymmetric choice, two shared inputs per transition, safe]  |P|=6 |T|=4
+philosophers-2  offer*        states=338427   steps=1844502   firings=3630     unsound=0      anomalies=0     quiescent=2    stalls=2    markings=3/3 edges=4/4 maxq=3 releases=0 requests=0
+    first stall, abstract marking {th0 th1 f0 f1} (not dead in the net):
+      trace (28 steps; token messages and firings only):
+        init   th0 (empty)
+        init   th0 +1
+        init   th1 (empty)
+        init   th1 +1
+        init   ea0 (empty)
+        init   ea1 (empty)
+        init   f0 (empty)
+        init   f0 +1
+        init   f1 (empty)
+        init   f1 +1
+        th0      processes a message (M=0)
+        th0      processes a message (M=1)
+        th0      -> its consumer(s): offer
+        th1      processes a message (M=0)
+        th1      processes a message (M=1)
+        th1      -> its consumer(s): offer
+        ea0      processes a message (M=0)
+        ea1      processes a message (M=0)
+        f0       processes a message (M=0)
+        f0       processes a message (M=1)
+        f0       -> its consumer(s): offer
+        f1       processes a message (M=0)
+        f1       processes a message (M=1)
+        f1       -> its consumer(s): offer
+        take0    processes a message (d=2)
+        take0    processes a message (d=1)
+        take1    processes a message (d=2)
+        take1    processes a message (d=1)
+
+EDG-PN exhaustive interleaving exploration (queue depth 8)
+
+# efc-pair  [extended free choice, two shared inputs per transition, safe]  |P|=2 |T|=2
+efc-pair        offer*        states=189      steps=384       firings=2        unsound=0      anomalies=0     quiescent=2    stalls=2    markings=1/1 edges=2/2 maxq=2 releases=0 requests=0
+    first stall, abstract marking {p q} (not dead in the net):
+      trace (12 steps; token messages and firings only):
+        init   p (empty)
+        init   p +1
+        init   q (empty)
+        init   q +1
+        p        processes a message (M=0)
+        p        processes a message (M=1)
+        p        -> its consumer(s): offer
+        q        processes a message (M=0)
+        q        processes a message (M=1)
+        q        -> its consumer(s): offer
+        a        processes a message (d=1)
+        b        processes a message (d=1)
+
+EDG-PN exhaustive interleaving exploration (queue depth 8)
+
+# efc-pair  [extended free choice, two shared inputs per transition, safe]  |P|=2 |T|=2
+efc-pair        release*      states=189      steps=384       firings=2        unsound=0      anomalies=0     quiescent=2    stalls=2    markings=1/1 edges=2/2 maxq=2 releases=0 requests=0
+    2 transition(s) with two or more shared inputs keep every offer (version-1 behaviour)
+    first stall, abstract marking {p q} (not dead in the net):
+      trace (12 steps; token messages and firings only):
+        init   p (empty)
+        init   p +1
+        init   q (empty)
+        init   q +1
+        p        processes a message (M=0)
+        p        processes a message (M=1)
+        p        -> its consumer(s): offer
+        q        processes a message (M=0)
+        q        processes a message (M=1)
+        q        -> its consumer(s): offer
+        a        processes a message (d=1)
+        b        processes a message (d=1)
+

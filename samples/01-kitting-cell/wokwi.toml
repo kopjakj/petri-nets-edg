@@ -1,0 +1,6 @@
+# Wokwi configuration -- the SIMULATOR build (RP2040 / Raspberry Pi Pico).
+# Build it first:  cmake -G Ninja -B build-sim -DEDG_TARGET=sim && ninja -C build-sim
+# (Wokwi emulates the RP2040 only; the RP2350 build lives in build-hw/.)
+[wokwi]
+version = 1
+firmware = 'build-sim/edg01_kitting_cell.elf'
