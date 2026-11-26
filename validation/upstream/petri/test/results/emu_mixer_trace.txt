@@ -1,0 +1,62 @@
+   0.301  
+   0.301  === Event-Driven Gates :: 14 Petri net + gates: batch mixer ===
+   0.301  (distance-descriptor software gates on RP2350 + FreeRTOS)
+   0.301  
+   0.302  starting scheduler...
+   0.302  [START  ] in =0 (init)
+   0.302  [LVL_A  ] in =0 (init)
+   0.302  [LVL_B  ] in =0 (init)
+   0.302  [EMPTY  ] in =0 (init)
+   1.000  [START  ] in =1 (chg)
+   1.000  [request] token
+   1.000  [start  ] fire
+   2.000  [LVL_A  ] in =1 (chg)
+   2.000  [evA    ] token
+   2.000  [endA   ] fire
+   3.000  [LVL_B  ] in =1 (chg)
+   3.000  [evB    ] token
+   3.000  [endB   ] fire
+   3.000  [join   ] fire
+   4.902  [evT    ] token
+   4.902  [mixdone] fire
+   6.000  [EMPTY  ] in =1 (chg)
+   6.000  [evE    ] token
+   6.000  [endD   ] fire
+   6.500  [START  ] in =0 (chg)
+   7.000  [LVL_B  ] in =0 (chg)
+   7.200  [EMPTY  ] in =0 (chg)
+   9.000  [START  ] in =1 (chg)
+   9.000  [request] token
+   9.000  [start  ] fire
+   9.000  [evA    ] token
+   9.000  [endA   ] fire
+  10.000  [LVL_B  ] in =1 (chg)
+  10.000  [evB    ] token
+  10.000  [endB   ] fire
+  10.000  [join   ] fire
+  11.902  [evT    ] token
+  11.902  [mixdone] fire
+  13.000  [EMPTY  ] in =1 (chg)
+  13.000  [evE    ] token
+  13.000  [endD   ] fire
+
+--- check -------------------------------------------------------
+simulated time      : 15 s, 41 trace lines
+firing sequence     : start endA endB join mixdone endD start endA endB join mixdone endD
+firings             : 12, illegal: 0, protocol anomalies: 0
+final marking (ref) : IDLE=1
+LED probes (t: VALVE_A VALVE_B MIXER DRAIN, expected/observed):
+     1.5 s  1100 / 1100
+     2.5 s  0100 / 0100
+     4.0 s  0010 / 0010
+     5.7 s  0001 / 0001
+     7.5 s  0000 / 0000
+     9.5 s  0100 / 0100
+    11.0 s  0010 / 0010
+    12.7 s  0001 / 0001
+    14.5 s  0000 / 0000
+LEDs as expected    : yes
+
+real	0m45.979s
+user	0m44.615s
+sys	0m0.172s

@@ -1,0 +1,16 @@
+**/node_modules/
+**/__pycache__/
+build*/
+deps/
+runner/bootrom.cjs
+grouped_search/gx_repo
+grouped_search/gx_s1
+grouped_search/gx_s1lib
+startup_audit/traces/
+startup_audit/corrected.jsonl
+startup_audit/corrected_summary.json
+startup_audit/corrected_manifest.json
+startup_audit/CORRECTED_DONE
+startup_audit/ab.jsonl
+startup_audit/manifest.json
+startup_audit/DONE

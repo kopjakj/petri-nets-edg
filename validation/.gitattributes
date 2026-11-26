@@ -1,0 +1,3 @@
+# Keep captured output byte-for-byte, including original trailing spaces.
+grouped_search/*.txt -whitespace
+upstream/petri/test/results/*.txt -whitespace

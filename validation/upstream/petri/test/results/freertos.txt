@@ -1,0 +1,49 @@
+fork-join       firings=1000297  illegal=0   anomalies=0   sends=3751117   yields=938711   stop: target reached
+                per transition: fork=250075 a=250074 b=250074 join=250074
+fork-join       firings=1000047  illegal=0   anomalies=0   sends=3750180   yields=937266   stop: target reached
+                per transition: fork=250012 a=250012 b=250012 join=250011
+fork-join       firings=1000206  illegal=0   anomalies=0   sends=3750776   yields=937408   stop: target reached
+                per transition: fork=250052 a=250051 b=250052 join=250051
+buffer-2        firings=1000726  illegal=0   anomalies=0   sends=4503277   yields=1126868  stop: target reached
+                per transition: produce=250183 put=250182 get=250181 consume=250180
+buffer-2        firings=1000585  illegal=0   anomalies=0   sends=4502643   yields=1126258  stop: target reached
+                per transition: produce=250147 put=250147 get=250146 consume=250145
+buffer-2        firings=1000724  illegal=0   anomalies=0   sends=4503263   yields=1126390  stop: target reached
+                per transition: produce=250182 put=250181 get=250181 consume=250180
+choice-merge    firings=1001099  illegal=0   anomalies=0   sends=3003301   yields=751723   stop: target reached
+                per transition: a=166850 b=166850 c=166850 d=166850 e=333699
+choice-merge    firings=1000067  illegal=0   anomalies=0   sends=3000208   yields=749839   stop: target reached
+                per transition: a=166678 b=166678 c=166678 d=166678 e=333355
+choice-merge    firings=1000043  illegal=0   anomalies=0   sends=3000134   yields=749824   stop: target reached
+                per transition: a=166674 b=166674 c=166674 d=166674 e=333347
+kitting         firings=1000176  illegal=0   anomalies=0   sends=3750666   yields=938591   stop: target reached
+                per transition: toA=250045 toB=250044 join=250044 ship=250043
+kitting         firings=1001142  illegal=0   anomalies=0   sends=3754287   yields=938315   stop: target reached
+                per transition: toA=250286 toB=250286 join=250285 ship=250285
+kitting         firings=1000685  illegal=0   anomalies=0   sends=3752575   yields=937862   stop: target reached
+                per transition: toA=250172 toB=250171 join=250171 ship=250171
+mutex           firings=1000067  illegal=0   anomalies=0   sends=4000275   yields=1001109  stop: target reached
+                per transition: req1=166679 enter1=166678 leave1=166678 req2=166678 enter2=166677 leave2=166677
+mutex           firings=1001047  illegal=0   anomalies=0   sends=4004195   yields=1000981  stop: target reached
+                per transition: req1=166842 enter1=166841 leave1=166841 req2=166841 enter2=166841 leave2=166841
+mutex           firings=1000866  illegal=0   anomalies=0   sends=4003470   yields=1000811  stop: target reached
+                per transition: req1=166812 enter1=166811 leave1=166811 req2=166811 enter2=166811 leave2=166810
+mutex-idle      firings=1        illegal=0   anomalies=0   sends=12        yields=0        stop: no firing for 500 ms (STALL: marking not dead)
+                per transition: req1=0 enter1=0 leave1=0 req2=1 enter2=0 leave2=0
+mutex-idle      firings=1        illegal=0   anomalies=0   sends=12        yields=0        stop: no firing for 500 ms (STALL: marking not dead)
+                per transition: req1=0 enter1=0 leave1=0 req2=1 enter2=0 leave2=0
+mutex-idle      firings=1        illegal=0   anomalies=0   sends=12        yields=0        stop: no firing for 500 ms (STALL: marking not dead)
+                per transition: req1=0 enter1=0 leave1=0 req2=1 enter2=0 leave2=0
+philosophers-2  firings=1000042  illegal=0   anomalies=0   sends=6000258   yields=1501759  stop: target reached
+                per transition: take0=250011 take1=250010 put0=250011 put1=250010
+philosophers-2  firings=1000078  illegal=0   anomalies=0   sends=6000477   yields=1501086  stop: target reached
+                per transition: take0=250020 take1=250019 put0=250020 put1=250019
+philosophers-2  firings=1000038  illegal=0   anomalies=0   sends=6000238   yields=1501027  stop: target reached
+                per transition: take0=250010 take1=250009 put0=250010 put1=250009
+philosophers-3  firings=1000084  illegal=0   anomalies=0   sends=6000518   yields=1501832  stop: target reached
+                per transition: take0=166681 take1=166681 take2=166680 put0=166681 put1=166681 put2=166680
+philosophers-3  firings=1000366  illegal=0   anomalies=0   sends=6002209   yields=1501513  stop: target reached
+                per transition: take0=166728 take1=166728 take2=166727 put0=166728 put1=166728 put2=166727
+philosophers-3  firings=1000368  illegal=0   anomalies=0   sends=6002221   yields=1501517  stop: target reached
+                per transition: take0=166728 take1=166728 take2=166728 put0=166728 put1=166728 put2=166728
+EXIT=0

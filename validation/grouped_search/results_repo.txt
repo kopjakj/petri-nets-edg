@@ -1,0 +1,20 @@
+s-shared         states=752       illegal=0   errors=0   lost=0   balance=0   overflow=0    stalls=0   dead=2   badfinal=0   markings=3/3 fired=2/2 maxq=9  complete
+s-shared-2tok    states=7304      illegal=0   errors=0   lost=0   balance=0   overflow=0    stalls=0   dead=4   badfinal=0   markings=6/6 fired=2/2 maxq=14  complete
+s-partial        states=488       illegal=0   errors=0   lost=0   balance=0   overflow=0    stalls=0   dead=1   badfinal=0   markings=2/2 fired=1/2 maxq=8  complete
+s-chain          states=1404      illegal=0   errors=0   lost=0   balance=0   overflow=0    stalls=0   dead=1   badfinal=0   markings=10/10 fired=2/2 maxq=7  complete
+s-bridge         states=926       illegal=0   errors=0   lost=0   balance=0   overflow=0    stalls=0   dead=5   badfinal=0   markings=4/4 fired=3/3 maxq=8  complete
+s-cycle          states=42        illegal=0   errors=0   lost=0   balance=0   overflow=0    stalls=0   dead=0   badfinal=0   markings=2/2 fired=2/2 maxq=3  complete
+x-three-way      states=16536     illegal=0   errors=0   lost=0   balance=0   overflow=0    stalls=0   dead=3   badfinal=0   markings=4/4 fired=3/3 maxq=14  complete
+x-cross          states=76560     illegal=0   errors=0   lost=0   balance=0   overflow=0    stalls=0   dead=8   badfinal=0   markings=5/5 fired=3/3 maxq=14  complete
+fork-join        states=2352      illegal=0   errors=0   lost=0   balance=0   overflow=0    stalls=0   dead=0   badfinal=0   markings=5/5 fired=4/4 maxq=7  complete
+buffer-2         states=68574     illegal=0   errors=0   lost=0   balance=0   overflow=0    stalls=0   dead=0   badfinal=0   markings=12/12 fired=4/4 maxq=10  complete
+choice-merge     states=342824    illegal=0   errors=0   lost=0   balance=0   overflow=3248 stalls=0   dead=0   badfinal=0   markings=10/10 fired=5/5 maxq=22  INCOMPLETE (overflow pruned)
+kitting          states=22044     illegal=0   errors=0   lost=0   balance=0   overflow=0    stalls=0   dead=4   badfinal=0   markings=9/9 fired=4/4 maxq=12  complete
+mutex            states=1363952   illegal=0   errors=0   lost=0   balance=0   overflow=24752 stalls=0   dead=0   badfinal=0   markings=8/8 fired=6/6 maxq=26  INCOMPLETE (overflow pruned)
+mutex-idle       states=44880     illegal=0   errors=0   lost=0   balance=0   overflow=416  stalls=0   dead=0   badfinal=0   markings=3/3 fired=3/6 maxq=25  INCOMPLETE (overflow pruned)
+philosophers-2   states=359242    illegal=0   errors=0   lost=0   balance=0   overflow=10226 stalls=0   dead=0   badfinal=0   markings=3/3 fired=4/4 maxq=26  INCOMPLETE (overflow pruned)
+philosophers-3   states=5000001   illegal=0   errors=0   lost=0   balance=0   overflow=0    stalls=0   dead=0   badfinal=0   markings=4/4 fired=6/6 maxq=21  INCOMPLETE (state cap)
+iot-gateway      states=5000001   illegal=0   errors=0   lost=0   balance=0   overflow=0    stalls=0   dead=0   badfinal=0   markings=8/144 fired=3/7 maxq=19  INCOMPLETE (state cap)
+batch-mixer      states=5000001   illegal=0   errors=0   lost=0   balance=0   overflow=0    stalls=0   dead=0   badfinal=0   markings=7/14 fired=5/10 maxq=20  INCOMPLETE (state cap)
+ev-site          states=5000002   illegal=0   errors=0   lost=0   balance=0   overflow=0    stalls=0   dead=0   badfinal=0   markings=13/225 fired=7/10 maxq=22  INCOMPLETE (state cap)
+exit=0

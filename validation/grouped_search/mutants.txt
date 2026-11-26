@@ -1,0 +1,7 @@
+DETECTED  no-clear  faults: s-shared s-shared-2tok s-chain s-bridge s-cycle x-three-way x-cross fork-join buffer-2 choice-merge kitting mutex mutex-idle philosophers-2 ev-site   coverage loss: s-shared-2tok(4<6) s-chain(3<10) buffer-2(4<12) choice-merge(8<10) kitting(5<9) ev-site(5<6) 
+DETECTED  no-close  faults: s-shared-2tok s-chain s-cycle fork-join buffer-2 choice-merge kitting mutex mutex-idle philosophers-2 ev-site   coverage loss: s-chain(5<10) buffer-2(6<12) choice-merge(9<10) kitting(6<9) 
+DETECTED  drop-pending  faults: s-shared s-shared-2tok s-bridge x-three-way x-cross choice-merge kitting mutex philosophers-2 ev-site   coverage loss: none
+DETECTED  no-merge  faults: s-bridge   coverage loss: s-shared(2<3) s-shared-2tok(3<6) s-bridge(2<4) x-three-way(2<4) x-cross(4<5) choice-merge(6<10) kitting(3<9) mutex(6<8) philosophers-2(2<3) philosophers-3(2<4) ev-site(4<6) 
+DETECTED  no-rerequest  faults: s-shared s-shared-2tok s-partial s-chain s-bridge s-cycle x-three-way x-cross fork-join buffer-2 choice-merge kitting mutex mutex-idle philosophers-2 iot-gateway ev-site   coverage loss: s-shared-2tok(4<6) s-chain(3<10) buffer-2(4<12) choice-merge(8<10) kitting(5<9) ev-site(5<6) 
+DETECTED  grant-first  faults: none  coverage loss: buffer-2(9<12) 
+exit=0

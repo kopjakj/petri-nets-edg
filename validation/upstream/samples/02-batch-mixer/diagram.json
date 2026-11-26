@@ -1,0 +1,299 @@
+{
+  "version": 1,
+  "author": "Event-Driven Gates",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-slide-switch",
+      "id": "swSTART",
+      "top": -50.0,
+      "left": -75,
+      "attrs": {
+        "bounce": "0"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "tswSTART",
+      "top": -73.6,
+      "left": -100,
+      "attrs": {
+        "text": "START"
+      }
+    },
+    {
+      "type": "wokwi-slide-switch",
+      "id": "swLVL_A",
+      "top": 15.0,
+      "left": -75,
+      "attrs": {
+        "bounce": "0"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "tswLVL_A",
+      "top": -8.6,
+      "left": -100,
+      "attrs": {
+        "text": "LVL_A"
+      }
+    },
+    {
+      "type": "wokwi-slide-switch",
+      "id": "swLVL_B",
+      "top": 80.0,
+      "left": -75,
+      "attrs": {
+        "bounce": "0"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "tswLVL_B",
+      "top": 56.4,
+      "left": -100,
+      "attrs": {
+        "text": "LVL_B"
+      }
+    },
+    {
+      "type": "wokwi-slide-switch",
+      "id": "swEMPTY",
+      "top": 145.0,
+      "left": -75,
+      "attrs": {
+        "bounce": "0"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "tswEMPTY",
+      "top": 121.4,
+      "left": -100,
+      "attrs": {
+        "text": "EMPTY"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rVALVE_A",
+      "top": -10.0,
+      "left": 95,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledVALVE_A",
+      "top": -60.0,
+      "left": 160,
+      "attrs": {
+        "color": "blue",
+        "label": "VALVE_A"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rVALVE_B",
+      "top": 55.0,
+      "left": 95,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledVALVE_B",
+      "top": 5.0,
+      "left": 160,
+      "attrs": {
+        "color": "blue",
+        "label": "VALVE_B"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rMIXER",
+      "top": 120.0,
+      "left": 95,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledMIXER",
+      "top": 70.0,
+      "left": 160,
+      "attrs": {
+        "color": "yellow",
+        "label": "MIXER"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rDRAIN",
+      "top": 186.57,
+      "left": 95,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledDRAIN",
+      "top": 136.57,
+      "left": 160,
+      "attrs": {
+        "color": "red",
+        "label": "DRAIN"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "swSTART:2",
+      "pico:GP2",
+      "green",
+      []
+    ],
+    [
+      "swSTART:3",
+      "pico:GND.1",
+      "black",
+      []
+    ],
+    [
+      "swLVL_A:2",
+      "pico:GP3",
+      "blue",
+      []
+    ],
+    [
+      "swLVL_A:3",
+      "pico:GND.2",
+      "black",
+      []
+    ],
+    [
+      "swLVL_B:2",
+      "pico:GP4",
+      "blue",
+      []
+    ],
+    [
+      "swLVL_B:3",
+      "pico:GND.3",
+      "black",
+      []
+    ],
+    [
+      "swEMPTY:2",
+      "pico:GP5",
+      "gray",
+      []
+    ],
+    [
+      "swEMPTY:3",
+      "pico:GND.4",
+      "black",
+      []
+    ],
+    [
+      "pico:GP16",
+      "rVALVE_A:1",
+      "orange",
+      []
+    ],
+    [
+      "rVALVE_A:2",
+      "ledVALVE_A:A",
+      "orange",
+      []
+    ],
+    [
+      "ledVALVE_A:C",
+      "pico:GND.5",
+      "black",
+      []
+    ],
+    [
+      "pico:GP17",
+      "rVALVE_B:1",
+      "orange",
+      []
+    ],
+    [
+      "rVALVE_B:2",
+      "ledVALVE_B:A",
+      "orange",
+      []
+    ],
+    [
+      "ledVALVE_B:C",
+      "pico:GND.5",
+      "black",
+      []
+    ],
+    [
+      "pico:GP18",
+      "rMIXER:1",
+      "orange",
+      []
+    ],
+    [
+      "rMIXER:2",
+      "ledMIXER:A",
+      "orange",
+      []
+    ],
+    [
+      "ledMIXER:C",
+      "pico:GND.6",
+      "black",
+      []
+    ],
+    [
+      "pico:GP19",
+      "rDRAIN:1",
+      "orange",
+      []
+    ],
+    [
+      "rDRAIN:2",
+      "ledDRAIN:A",
+      "orange",
+      []
+    ],
+    [
+      "ledDRAIN:C",
+      "pico:GND.6",
+      "black",
+      []
+    ],
+    [
+      "pico:GP0",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "pico:GP1",
+      "$serialMonitor:TX",
+      "",
+      []
+    ]
+  ],
+  "serialMonitor": {
+    "display": "auto"
+  }
+}

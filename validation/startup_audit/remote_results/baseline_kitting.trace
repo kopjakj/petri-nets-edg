@@ -1,0 +1,8 @@
+0.0022	NET kitting np=4 nt=4 POL grouped-rr SEED 1 JIT 1 Q 2
+0.0023	T 0 toA pre 0 post 1
+0.0023	T 1 toB pre 0 post 2
+0.0024	T 2 join pre 1 2 post 3 0
+0.0024	T 3 ship pre 3 post 0
+0.0024	M0 2 0 0 0
+0.0027	GROUPS 3
+0.0027	QFULL box=0 started=0 kind=1 id=0
